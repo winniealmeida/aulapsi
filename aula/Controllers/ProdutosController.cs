@@ -2,6 +2,7 @@
 using Servico.Cadastros;
 using Servico.Tabelas;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 
 namespace aula.Controllers
@@ -62,6 +63,7 @@ namespace aula.Controllers
                     produtoServico.GravarProduto(produto);
                     return RedirectToAction("Index");
                 }
+                PopularViewBag(produto);
                 return View(produto);
             }
             catch
@@ -69,6 +71,8 @@ namespace aula.Controllers
                 return View(produto);
             }
         }
+
+        
 
         // GET: Produtos/Details/5
         public ActionResult Details(long? id)
