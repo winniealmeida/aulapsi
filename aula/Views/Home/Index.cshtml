@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Modelo.Cadastros.Produto>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Listagem de PRODUTOS";
+}
+@if (@TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Produtos em Destaque
+    </div>
+    <div class="panel-body">
+        @Html.Partial("~/Views/Home/_PartialListContentPanel.cshtml", Model)
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Produtos dos últimos 30 dias
+    </div>
+    <div class="panel-body">
+        @Html.Partial("~/Views/Home/_PartialListContentPanel.cshtml", Model)
+    </div>
+</div>
+@section styles{
+    <link href="@Url.Content("~/content/DataTables/css/dataTables.bootstrap.css")"
+          rel="stylesheet">
+}
+@section ScriptPage {
+    <script src=" @Url.Content("~/scripts/DataTables/jquery. dataTables.js")"></script>
+    <script src="@Url.Content("~/scripts/DataTables/dataTables.bootstrap.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liHome').addClass("active");
+            $('.table').dataTable({
+                "order": [[1, "asc"]]
+            });
+        });
+    </script>
+}

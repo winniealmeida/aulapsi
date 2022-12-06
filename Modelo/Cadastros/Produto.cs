@@ -29,5 +29,6 @@ namespace Modelo.Cadastros
         public long TamanhoArquivo { get; set; }
         public Categoria Categoria { get; set; }
         public Fabricante Fabricante { get; set; }
+        public bool Destaque { get; set; }
     }
 }
