@@ -1,4 +1,5 @@
-﻿using Servico.Cadastros;
+﻿using Modelo.Cadastros;
+using Servico.Cadastros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,13 @@ namespace aula.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            IEnumerable<Produto> destaques = produtoServico.ObterProdutosMarcadosComoDestaque();
+            IEnumerable<Produto> trintaDias = produtoServico.ObterProdutosDosUltimosTrintaDias();
+
+            List<IEnumerable<Produto>> listas = new List<IEnumerable<Produto>>();
+            listas.Add(destaques);
+            listas.Add(trintaDias);
+            return View(listas);
             return View(produtoServico.ObterProdutosClassificadosPorNome());
         }
     }

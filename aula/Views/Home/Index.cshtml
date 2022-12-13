@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Modelo.Cadastros.Produto>
+﻿@model List<IEnumerable<Modelo.Cadastros.Produto>>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +15,7 @@
         Produtos em Destaque
     </div>
     <div class="panel-body">
-        @Html.Partial("~/Views/Home/_PartialListContentPanel.cshtml", Model)
+        @Html.Partial("~/Views/Home/_PartialListContentPanel.cshtml", Model[0])
     </div>
 </div>
 
@@ -24,7 +24,7 @@
         Produtos dos últimos 30 dias
     </div>
     <div class="panel-body">
-        @Html.Partial("~/Views/Home/_PartialListContentPanel.cshtml", Model)
+        @Html.Partial("~/Views/Home/_PartialListContentPanel.cshtml", Model[1])
     </div>
 </div>
 @section styles{

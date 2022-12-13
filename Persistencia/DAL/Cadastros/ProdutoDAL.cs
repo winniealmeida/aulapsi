@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using Modelo.Cadastros;
 using System.Linq;
+using System;
 
 namespace Persistencia.DAL.Cadastros
 {
@@ -11,6 +12,19 @@ namespace Persistencia.DAL.Cadastros
         public IQueryable<Produto> ObterProdutosClassificadosPorNome()
         {
             return context.Produtos.Include(c => c.Categoria).Include(f => f.Fabricante).
+            OrderBy(n => n.Nome);
+        }
+        public IQueryable<Produto> ObterProdutosMarcadosComoDestaque()
+        {
+            return context.Produtos.Include(c => c.Categoria).Include(f => f.Fabricante).
+            Where(x => x.Destaque == true).
+            OrderBy(n => n.Nome);
+        }
+        public IQueryable<Produto> ObterProdutosDosUltimosTrintaDias()
+        {
+            DateTime filtro = DateTime.Now.AddDays(-30);
+            return context.Produtos.Include(c => c.Categoria).Include(f => f.Fabricante).
+            Where(x => x.DataCadastro > filtro).
             OrderBy(n => n.Nome);
         }
         public Produto ObterProdutoPorId(long id)
