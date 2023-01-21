@@ -12,7 +12,7 @@
             Alteração dos dados de um PRODUTO
         </div>
         <div class="panel-body">
-            @Html.Partial("~/Views/Produtos/_PartialEditContentPanel.cshtml", Model)
+            @Html.Partial("~/Areas/Cadastros/Views/Produtos/_PartialEditContentPanel.cshtml", Model)
             @Html.HiddenFor(model => model.ProdutoId)
             @Html.HiddenFor(model => model.LogotipoMimeType)
             @Html.HiddenFor(model => model.Logotipo)

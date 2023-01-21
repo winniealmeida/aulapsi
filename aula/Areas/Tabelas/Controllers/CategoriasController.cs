@@ -8,7 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace aula.Controllers
+namespace aula.Areas.Tabelas.Controllers
 {
     public class CategoriasController : Controller
     {

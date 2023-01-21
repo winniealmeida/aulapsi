@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace aula.Controllers
+namespace aula.Areas.Cadastros.Controllers
 {
     public class ProdutosController : Controller
     {

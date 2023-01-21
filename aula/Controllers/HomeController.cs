@@ -21,7 +21,6 @@ namespace aula.Controllers
             listas.Add(destaques);
             listas.Add(trintaDias);
             return View(listas);
-            return View(produtoServico.ObterProdutosClassificadosPorNome());
         }
     }
 }
