@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using aula.Areas.Seguranca.Models;
+using System.Net;
 
 namespace aula.Areas.Seguranca.Controllers
 {
@@ -19,6 +20,7 @@ namespace aula.Areas.Seguranca.Controllers
             }
         }
         // GET: Seguranca/Admin
+        [Authorize(Roles = "Administradores")]
         public ActionResult Index()
         {
             return View(GerenciadorUsuario.Users);

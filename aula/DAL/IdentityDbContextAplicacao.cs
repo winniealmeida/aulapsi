@@ -5,7 +5,7 @@ namespace aula.DAL
 {
     public class IdentityDbContextAplicacao : IdentityDbContext<Usuario>
     {
-        public IdentityDbContextAplicacao() : base("IdentityDb")
+        public IdentityDbContextAplicacao() : base("IdentityDB3")
         { }
         static IdentityDbContextAplicacao()
         {
